@@ -74,7 +74,12 @@
                 </div>
                 <div class="m-3 col-lg-3">
                     <label for="select_motors" class="form-label">Select Motors</label>
-                    <input type="text" name="select_motors" class="form-control">
+                    <select name="select_motors" id="select_motors" class="form-control">
+                        @foreach($motors as $motor)
+                        <option value="{{ $motor->name }}">{{ $motor->name }}</option>
+                        @endforeach
+                    </select>
+                    {{-- <input type="text" name="select_motors" class="form-control"> --}}
                 </div>
                 <div class="m-3 col-lg-3">
                     <label for="irrigation_type" class="form-label">Irrigation Type</label>

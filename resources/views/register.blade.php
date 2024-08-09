@@ -65,6 +65,18 @@
             <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email" value="{{old('email')}}">
             <span class="text-danger">@error('email') {{$message}} @enderror</span>
           </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Role</label>
+            {{-- <s type="email" name="email" class="form-control" id="email" placeholder="Enter your email" value="{{old('email')}}"> --}}
+              <select name="role" id="role" class="form-control" required>
+                <option value="">Select Role</option>
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+              </select>
+            <span class="text-danger">@error('email') {{$message}} @enderror</span>
+          </div>
+
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password">

@@ -56,10 +56,10 @@
         <div class="col-lg-7">
             <form action="{{ route('add.motors') }}" method="POST" class="row">
                 @csrf
-                <div class="m-3 d-flex">
+                {{-- <div class="m-3 d-flex">
                     <label for="s_no" class="col-lg-2 form-label float-end">S. No.</label>
                     <input type="number" name="s_no" placeholder="2" class="form-control">
-                </div>
+                </div> --}}
                 <div class="m-3 d-flex">
                     <label for="line_id" class="col-lg-2 form-label">Line Id</label>
                     <input type="text" name="line_id" placeholder="Enter Name" class="form-control">

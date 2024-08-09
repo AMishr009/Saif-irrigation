@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Tank;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class TanksController extends Controller
 {
     public function tanks_index()
     {
-        $tanks = Tank::all();
+        $tanks = Tank::where('userid', Auth::user()->id)->get();
         return view('pages.tanks', compact('tanks'));
     }
 
@@ -23,7 +24,7 @@ class TanksController extends Controller
     public function insert_tanks(Request $request)
     {
         $request->validate([
-            's_no' => 'required|integer',
+            // 's_no' => 'required|integer',
             'line_id' => 'required|string',
             'tank_name' => 'required|string',
             'tank_type' => 'required|string',
@@ -32,7 +33,8 @@ class TanksController extends Controller
         ]);
 
         $tank = new Tank();
-        $tank->s_no = $request->s_no;
+        // $tank->s_no = $request->s_no;
+        $tank->userid = Auth::user()->id;
         $tank->line_id = $request->line_id;
         $tank->tank_name = $request->tank_name;
         $tank->tank_type = $request->tank_type;

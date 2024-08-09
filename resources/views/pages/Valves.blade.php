@@ -56,9 +56,12 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                        $i = 1;
+                    @endphp
                     @foreach ($valves as $valve)
                         <tr>
-                            <td>{{ $valve->s_no }}</td>
+                            <td>{{ $i++ }}</td>
                             <td>{{ $valve->line_id }}</td>
                             <td>{{ $valve->name }}</td>
                             <td>{{ $valve->type }}</td>

@@ -45,7 +45,7 @@
             <table class="table table-bordered text-center">
                 <thead>
                     <tr>
-                        <th> {{ session('userid') }} Program No.</th>
+                        <th> {{ Auth::user()->id }} Program No.</th>
                         <th>Program Name</th>
                         <th>Select Valves</th>
                         <th>Select Motors</th>

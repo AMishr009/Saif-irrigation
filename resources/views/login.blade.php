@@ -33,6 +33,25 @@
     .btn-orange:hover{
         background-color: orange;
     }
+
+    #preloader {
+            display: none; /* Hidden by default */
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+        }
+
+        #preloader .spinner-border {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* transform: translate(-50%, -50%); */
+        }
   </style>
 </head>
 
@@ -43,6 +62,11 @@
     <main>
 
     <div class="container mt-5">
+      <div id="preloader">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
   <div class="row justify-content-center">
     <div class="col-lg-6">
       <div class="form-container">
@@ -53,7 +77,7 @@
         @if(Session::has('fail'))
         <div class="alert alert-danger">{{Session::get('fail')}}</div>
         @endif
-        <form class="form" action="{{route('login')}}" method="post">
+        <form class="form" id="loginForm" action="{{route('login')}}" method="post">
             @csrf
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
@@ -81,6 +105,21 @@
         <!-- place footer here -->
     </footer>
     <!-- Bootstrap JavaScript Libraries -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#loginForm').on('submit', function(e) {
+                // Show the preloader
+                $('#preloader').show();
+                // Simulate a delay to show the preloader for at least 3 seconds
+                setTimeout(function() {
+                    $('#preloader').hide();
+                }, 3000);
+            });
+        });
+    </script>
+    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>

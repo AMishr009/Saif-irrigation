@@ -55,9 +55,12 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                        $i = 1;
+                    @endphp
                     @foreach ($motors as $motor)
                         <tr>
-                            <td>{{ $motor->s_no }}</td>
+                            <td>{{ $i++ }}</td>
                             <td>{{ $motor->line_id }}</td>
                             <td>{{ $motor->name }}</td>
                             <td>{{ $motor->type }}</td>

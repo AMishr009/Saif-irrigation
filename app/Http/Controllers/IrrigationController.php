@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Irrigation;
+use App\Models\Motor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class IrrigationController extends Controller
 {
@@ -17,7 +19,9 @@ class IrrigationController extends Controller
 
     public function add_irrigation()
     {
-        return view('pages.add_irrigation');
+        $motors = Motor::where('userid', '=', Auth::user()->id)->get();
+        $data = compact('motors');
+        return view('pages.add_irrigation')->with($data);
     }
 
     public function insert_irrigation(Request $request)

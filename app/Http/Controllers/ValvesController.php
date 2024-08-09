@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\Valve;
 
 class ValvesController extends Controller
 {
     public function valves_index()
     {
-        $valves = Valve::all();
+        $valves = Valve::where('userid', Auth::user()->id)->get();
         return view('pages.valves', compact('valves'));
     }
 
@@ -23,7 +23,7 @@ class ValvesController extends Controller
     public function insert_valves(Request $request)
     {
         $request->validate([
-            's_no' => 'required|integer',
+            // 's_no' => 'required|integer',
             'line_id' => 'required|string',
             'name' => 'required|string',
             'type' => 'required|string',
@@ -31,7 +31,8 @@ class ValvesController extends Controller
         ]);
 
         $valve = new Valve();
-        $valve->s_no = $request->s_no;
+        // $valve->s_no = $request->s_no;
+        $valve->userid = Auth::user()->id;
         $valve->line_id = $request->line_id;
         $valve->name = $request->name;
         $valve->type = $request->type;

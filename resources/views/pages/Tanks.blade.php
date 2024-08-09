@@ -57,9 +57,12 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                        $i = 1;
+                        @endphp
                     @foreach ($tanks as $tank)
                         <tr>
-                            <td>{{ $tank->s_no }}</td>
+                            <td>{{ $i++ }}</td>
                             <td>{{ $tank->line_id }}</td>
                             <td>{{ $tank->tank_name }}</td>
                             <td>{{ $tank->tank_type }}</td>

@@ -42,14 +42,16 @@
 
         <div class="col-lg-10 mt-lg-5 mt-3">
         <section class="table_content">
+            
         <div class="table-responsive d-flex justify-content-center">
+            
     <table class="table-bordered text-center"> 
         <tbody>
             <colgroup>
                 <col span=2></col>
             </colgroup>
             <tr>
-                <th>S. No.</th>
+                <th>S. No. {{ session()->get('auto1.program_no') }}</th>
                 <th>Sequence No.</th>
                 <th>Start Time</th>
                 <th>End Time</th>
@@ -58,16 +60,23 @@
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
+            {{-- @php
+                $i=1;
+                echo "<pre>";
+                print_r($data);
+            @endphp --}}
+            @foreach ($data as $item)          
             <tr>
-                <td>1</td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
+                <td>{{ $item->id }}</td>
+                <td>{{ $item->program_no }} </td>
+                <td> {{ $item->start_time }}</td>
+                <td> {{ $item->end_time }}</td>
                 <td> </td>
                 <td> </td>
                 <td><i class="fas fa-edit"></i></td>
                 <td><i class="fa-solid fa-trash"></i></td>
             </tr>
+            @endforeach
         </tbody>
     </table>
 </div>

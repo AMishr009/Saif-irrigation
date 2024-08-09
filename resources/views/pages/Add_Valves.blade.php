@@ -57,10 +57,10 @@
         <div class="col-lg-7">
             <form action="{{ route('valves.store') }}" method="POST">
                 @csrf
-                <div class="m-3 d-flex">
+                {{-- <div class="m-3 d-flex">
                     <label for="s_no" class="col-lg-2 form-label float-end">S. No.</label>
                     <input type="number" name="s_no" placeholder="2" class="form-control">
-                </div>
+                </div> --}}
                 <div class="m-3 d-flex">
                     <label for="line_id" class="col-lg-2 form-label">Line Id</label>
                     <input type="text" name="line_id" placeholder="Enter Name" class="form-control">
@@ -78,7 +78,7 @@
                     <input type="text" name="covering_area" class="form-control">
                 </div>
                 <div class="m-3 d-flex">
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn_orange ms-2">Save</button>
                 </div>
             </form>
             

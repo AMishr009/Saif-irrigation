@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('required_water');
             $table->string('total_water');
             $table->string('fertigation_receipt_no');
-            $table->boolean('fertigation_type')->default(false);
-            $table->boolean('injector_control')->default(false);
+            $table->string('fertigation_type');
+            $table->string('injector_control');
             $table->string('fertigation_ec');
             $table->string('pre_water_1')->nullable();
             $table->string('pre_water_2')->nullable();
